@@ -1,5 +1,7 @@
-package com.prabhat._HospitalManagement.entity;
+package com.prabhat._HospitalManagement.modules.Appointment.entity;
 
+import com.prabhat._HospitalManagement.modules.Doctor.entity.Doctor;
+import com.prabhat._HospitalManagement.modules.Patient.entity.Patient;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

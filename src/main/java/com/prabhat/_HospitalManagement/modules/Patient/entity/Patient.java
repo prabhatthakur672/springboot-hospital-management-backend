@@ -1,6 +1,6 @@
-package com.prabhat._HospitalManagement.entity;
-
-import com.prabhat._HospitalManagement.entity.type.BloodGroupType;
+package com.prabhat._HospitalManagement.modules.Patient.entity;
+import com.prabhat._HospitalManagement.modules.Appointment.entity.Appointment;
+import com.prabhat._HospitalManagement.modules.Insurance.entity.Insurance;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

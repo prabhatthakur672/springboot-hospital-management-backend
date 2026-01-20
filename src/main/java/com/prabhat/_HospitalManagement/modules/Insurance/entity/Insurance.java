@@ -1,5 +1,6 @@
-package com.prabhat._HospitalManagement.entity;
+package com.prabhat._HospitalManagement.modules.Insurance.entity;
 
+import com.prabhat._HospitalManagement.modules.Patient.entity.Patient;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

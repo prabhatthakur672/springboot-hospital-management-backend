@@ -1,5 +1,6 @@
-package com.prabhat._HospitalManagement.entity;
+package com.prabhat._HospitalManagement.modules.Department.entity;
 
+import com.prabhat._HospitalManagement.modules.Doctor.entity.Doctor;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
