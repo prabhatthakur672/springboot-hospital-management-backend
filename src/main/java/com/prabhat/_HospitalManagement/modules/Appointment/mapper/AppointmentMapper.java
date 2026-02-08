@@ -8,7 +8,6 @@ public class AppointmentMapper {
     public static AppointmentResponseDTO toDTO(Appointment appointment) {
         return AppointmentResponseDTO.builder()
                 .id(appointment.getId())
-                .appointmentTime(appointment.getAppointmentTime())
                 .reason(appointment.getReason())
                 .patientName(appointment.getPatient().getName())
                 .doctorName(appointment.getDoctor().getName())

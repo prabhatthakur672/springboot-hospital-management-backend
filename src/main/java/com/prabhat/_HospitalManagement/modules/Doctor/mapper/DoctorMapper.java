@@ -28,7 +28,6 @@ public class DoctorMapper {
     public static DoctorAppointmentDTO toAppointmentDTO(Appointment appointment) {
         return DoctorAppointmentDTO.builder()
                 .appointmentId(appointment.getId())
-                .appointmentTime(appointment.getAppointmentTime())
                 .patientName(appointment.getPatient().getName())
                 .reason(appointment.getReason())
                 .build();

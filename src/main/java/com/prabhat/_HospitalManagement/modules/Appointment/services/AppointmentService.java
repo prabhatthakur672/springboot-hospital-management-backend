@@ -22,7 +22,4 @@ public interface AppointmentService {
 
     List<AppointmentResponseDTO> getAppointmentsByDoctor(Long doctorId);
 
-    List<AppointmentResponseDTO> getAppointmentsInRange(
-            AppointmentRangeRequestDTO dto
-    );
 }

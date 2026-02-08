@@ -12,18 +12,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@ToString
 @Getter
 @Setter
-@Table(
-        name = "patient",
-//        uniqueConstraints = {
-//                @UniqueConstraint(name = "unique_email", columnNames = {"email"})
-//        },
-        indexes = {
-                @Index(name = "idx_patient_birth_date", columnList = "birthDate")
-        }
-)
 public class Patient {
 
     @Id
@@ -33,7 +23,6 @@ public class Patient {
     @Column(nullable = false, length = 50)
     private String name;
 
-    @ToString.Exclude
     private LocalDate birthDate;
 
     private String gender;
@@ -41,20 +30,29 @@ public class Patient {
     @Column(nullable = false, unique = true, length = 50)
     private String email;
 
+    @Column(nullable = false, length = 15)
+    private String phoneNumber;
+
     @Enumerated(EnumType.STRING)
     private BloodGroupType bloodGroup;
+
+    @Column(length = 1000)
+    private String pastHealthRecord;
+    // diabetes, heart disease, surgery history, etc.
+
+    @Column(length = 15)
+    private String emergencyContactNumber;
 
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
     @OneToOne
-    @JoinColumn(name = "patient_insurance_id") //owning side
+    @JoinColumn(name = "patient_insurance_id")
     private Insurance insurance;
 
     @OneToMany(mappedBy = "patient")
     private List<Appointment> appointments;
 }
-
 
 

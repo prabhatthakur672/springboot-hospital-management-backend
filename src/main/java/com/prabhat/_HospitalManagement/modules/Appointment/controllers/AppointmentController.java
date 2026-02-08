@@ -122,18 +122,5 @@ public class AppointmentController {
         );
     }
 
-    @PostMapping("/range")
-    public ResponseEntity<ApiResponse<Map<String, Object>>> getInRange(
-            @RequestBody AppointmentRangeRequestDTO dto) {
 
-        var appointments = appointmentService.getAppointmentsInRange(dto);
-
-        return ResponseEntity.ok(
-                ApiResponse.<Map<String, Object>>builder()
-                        .message("Appointments fetched successfully")
-                        .data(Map.of("appointments", appointments))
-                        .error(null)
-                        .build()
-        );
-    }
 }

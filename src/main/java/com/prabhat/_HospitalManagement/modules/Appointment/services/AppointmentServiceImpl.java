@@ -27,6 +27,8 @@ public class AppointmentServiceImpl implements AppointmentService {
     @Override
     public AppointmentResponseDTO createAppointment(AppointmentRequestDTO dto) {
 
+        // 1. check whether patient with this email already exists, if not create first
+        // 2. check
         Patient patient = patientRepository.findById(dto.getPatientId())
                 .orElseThrow(() -> new RuntimeException("Patient not found"));
 
@@ -34,7 +36,6 @@ public class AppointmentServiceImpl implements AppointmentService {
                 .orElseThrow(() -> new RuntimeException("Doctor not found"));
 
         Appointment appointment = new Appointment();
-        appointment.setAppointmentTime(dto.getAppointmentTime());
         appointment.setReason(dto.getReason());
         appointment.setPatient(patient);
         appointment.setDoctor(doctor);
@@ -65,7 +66,6 @@ public class AppointmentServiceImpl implements AppointmentService {
         Appointment appointment = appointmentRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Appointment not found"));
 
-        appointment.setAppointmentTime(dto.getAppointmentTime());
         appointment.setReason(dto.getReason());
 
         return AppointmentMapper.toDTO(
@@ -92,17 +92,6 @@ public class AppointmentServiceImpl implements AppointmentService {
     @Override
     public List<AppointmentResponseDTO> getAppointmentsByDoctor(Long doctorId) {
         return appointmentRepository.findByDoctorId(doctorId)
-                .stream()
-                .map(AppointmentMapper::toDTO)
-                .toList();
-    }
-
-    @Override
-    public List<AppointmentResponseDTO> getAppointmentsInRange(
-            AppointmentRangeRequestDTO dto) {
-
-        return appointmentRepository
-                .findByAppointmentTimeBetween(dto.getStart(), dto.getEnd())
                 .stream()
                 .map(AppointmentMapper::toDTO)
                 .toList();
